@@ -5,6 +5,12 @@ programa
 	funcao inicio()
 	{
 		//EXERCICIO 1
+		/* João Papo-de-Pescador, homem de bem, comprou um microcomputador para controlar o rendimento diário de seu trabalho. 
+		 *  Toda vez que ele traz um peso de tomate maior que o estabelecido pelo regulamento do estado de São Paulo (50 quilos) 
+		 *  deve pagar um multa de R$ 4,00 por quilo excedente. João precisa que você faça um sistema que leia a 
+		 *  variável P (peso de tomates) e verifique se há excesso. Se houver, gravar na variável E (Excesso) e na 
+		 *  variável M o valor da multa que João deverá pagar. Caso contrário mostrar tais variáveis com o conteúdo ZERO.*/
+
 		escreva("\n EXERCÍCIO 1\n\n")
 
 		real pesoTomates=0.0, variavelM=0.0, excesso=0.0
@@ -26,8 +32,9 @@ programa
 		 *  Quando o número de horas exceder a 50 calcule o excesso de pagamento armazenando-o na variável E, 
 		 *  caso contrário zerar tal variável. A hora excedente de trabalho vale R$ 20,00. 
 		 *  No final do processamento imprimir o salário total e o salário excedente.*/
+		 
 		escreva("\n\n EXERCÍCIO 2\n\n")
-		real N=0.0,E=0.0,salario=0.0,adicional=0.0,salarioBase=500 
+		real N=0.0,E=0.0,salario=0.0,adicional=0.0,salarioBase=500.0
 		escreva("Número de horas trabalhadas: ")
 		leia(N)
 		salario = N*10
@@ -115,6 +122,38 @@ programa
 			escreva("\nO índice de poluição é ",indiceDePoluicao," e todas as industrias devem parar imediatamente de operar.")
 		}
 
+		//EXERCÍCIO 6
+		/*Elabore um sistema que dada a idade de um nadador classifique-o em uma das seguintes categorias:
+		Infantil A = 5 a 7 anos
+		Infantil B = 8 a 11 anos
+		Juvenil A = 12 a 13 anos
+		Juvenil B = 14 a 17 anos
+		Adultos = Maiores de 18 anos*/
+
+		escreva("\n\n EXERCÍCIO 6\n\n")
+		inteiro idadeNadador
+		escreva("Qual a idade do nadador? ")
+		leia(idadeNadador)
+
+		se(idadeNadador<5) {
+			escreva("\nVocê é muito novo e não pode fazer natação aqui ainda :(\n")
+		} senao se(idadeNadador>=5 e idadeNadador<=7) {
+			escreva("\nClassificação: Infantil A\n")
+		} senao se(idadeNadador>=8 e idadeNadador<=11) {
+			escreva("\nClassificação: Infantil B\n")
+		} senao se(idadeNadador>=12 e idadeNadador<=13) {
+			escreva("\nClassificação: Juvenil A\n")
+		} senao se(idadeNadador>=14 e idadeNadador<=17) {
+			escreva("\nClassificação: Juvenil B\n")
+		} senao {
+			escreva("\nClassificação: Adultos\n")
+		}
+		
+
+		//EXERCÍCIO 7
+		/*Receber valores de base e altura de um triângulo e verificar se são valores válidos (positivos maiores que zero). 
+		 * Em caso afirmativo, calcular a área do triângulo.*/
+
 		escreva("\n\n EXERCÍCIO 7\n\n")
 		real base, altura, area
 		escreva("Entre com a base do triângulo: ")
@@ -130,8 +169,22 @@ programa
 		} senao {
 			escreva("\nA área do triângulo é: ", area)
 		}
-		
-		 
+
+		//EXERCÍCIO 8
+		/*Construa um sistema para ler uma variável numérica N e imprimi-la somente se a mesma for maior que 100, 
+		 * caso contrário imprimi-la com o valor zero.*/
+
+		 escreva("\n\n EXERCÍCIO 8\n\n")
+		 real n=0.0
+		 escreva("Insira um número maior que cem: ")
+		 leia(n)
+		 se(n<=100) {
+		 	escreva("\n0\n")
+		 } senao {
+		 	escreva("\n")
+		 	escreva(n)
+		 	escreva("\n")
+		 }	 
 
 	}
 }
@@ -140,7 +193,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 479; 
+ * @POSICAO-CURSOR = 0; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
