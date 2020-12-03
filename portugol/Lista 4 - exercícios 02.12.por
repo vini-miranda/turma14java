@@ -63,7 +63,7 @@ programa
 		{
 			para (inteiro coluna=0; coluna<6; coluna++)
 			{N1[linha][coluna]=Util.sorteia(0, 4)
-				escreva(N1[linha][coluna]," ")
+				escreva(N1[linha][coluna],"\t")
 			}
 			escreva("\n")
 		}
@@ -74,7 +74,7 @@ programa
 			para (inteiro coluna=0; coluna<6; coluna++)
 			{
 				N2[linha][coluna]=Util.sorteia(1, 2)
-				escreva(N2[linha][coluna]," ")
+				escreva(N2[linha][coluna],"\t")
 		     }
 			escreva("\n")
 		}
@@ -85,7 +85,7 @@ programa
 			para (inteiro coluna=0; coluna<6; coluna++)
 			{
 				M1[linha][coluna]=N1[linha][coluna]+N2[linha][coluna]
-				escreva(M1[linha][coluna]," ")
+				escreva(M1[linha][coluna],"\t")
 			}
 			escreva("\n")
 		}
@@ -96,7 +96,7 @@ programa
 			para (inteiro coluna=0; coluna<6; coluna++)
 			{
 				M2[linha][coluna]=N1[linha][coluna]-N2[linha][coluna]
-				escreva(M2[linha][coluna]," ")
+				escreva(M2[linha][coluna],"\t")
 			}
 			escreva("\n")
 		}
@@ -111,8 +111,7 @@ programa
 		para(inteiro linha=0 ; linha<3 ; linha++) {
 			para(inteiro coluna=0 ; coluna<3 ; coluna++) {
 				
-				escreva(mat[linha][coluna])
-				escreva("entre com o valor linha/coluna ",linha,": ")
+				escreva("entre com o valor linha/coluna ",linha,"/",coluna,": ")
 				leia(mat[linha][coluna])
 				se(linha == coluna) {
 					somaDiagonal = mat[linha][coluna] + somaDiagonal
@@ -138,9 +137,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3593; 
+ * @POSICAO-CURSOR = 3862; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {M1, 59, 30, 2}-{mat, 109, 10, 3};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
