@@ -54,6 +54,9 @@ programa
 					
 				}
 	    		}
+	    		senao {
+	    		escreva("\nDigite um número válido")
+	    		}
 	    	  }
 	    	  escreva("\nEntre com a data de hoje em formato dd: ")
 	    	  leia(DATA)
@@ -74,7 +77,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1342; 
+ * @POSICAO-CURSOR = 1418; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
