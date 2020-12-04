@@ -12,13 +12,14 @@ programa
 		4 Em três vezes, preço normal de etiqueta mais juros de 10%*/
 		escreva("EXERCÍCIO 1\n\n")
 		real preco, desconto, precoFinal, parcela
-		caracter formaPagamento 
+		caracter formaPagamento, novaCompra = ' '
 
-		escreva("Entre com o preço do produto: ")
-		leia(preco)
-		escreva("Escolha a forma de pagamento: \n[1]A vista\n[2]Parcelado ")
-		leia(formaPagamento)
-
+		faca {
+			escreva("\nEntre com o preço do produto: ")
+			leia(preco)
+			escreva("Escolha a forma de pagamento: \n[1]A vista\n[2]Parcelado ")
+			leia(formaPagamento)
+			
 		se(formaPagamento == '1') {
 			escreva("\nEscolha: \n[1]Dinheiro ou cheque\n[2]Cartão de Crédito ")
 			leia(formaPagamento)
@@ -59,6 +60,10 @@ programa
 		senao {
 				escreva("\nDigite um comando válido")
 		}
+		escreva("\n\nDeseja realizar nova compra?\n[S]sim \n[N]não ")
+	    	leia(novaCompra)		
+		}
+		enquanto(novaCompra == 'S' ou novaCompra == 's')
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -66,7 +71,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 648; 
+ * @POSICAO-CURSOR = 761; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
