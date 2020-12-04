@@ -1,5 +1,6 @@
 programa
 {
+	inclua biblioteca Util
 	
 	funcao inicio()
 	{
@@ -10,6 +11,7 @@ programa
 		real notas [39] = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}
 		cadeia ALUNO
 		caracter tipo = 'S'
+		inteiro notaAleatoria = Util.sorteia(1,10)
 		
 		para(inteiro i = 0; i<39; i++){
 			se(i<9){
@@ -43,7 +45,7 @@ programa
 				}
 			   }
 			}		
-			escreva("Deseja continuar?  S/N: ")
+			escreva("Deseja escolher outro aluno?  S/N: ")
 				leia(tipo)
 		}enquanto(tipo == 'S')
 
@@ -77,6 +79,11 @@ programa
 			}
 		
 		}
+	
+	
+	
+	
+	
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -84,7 +91,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3427; 
+ * @POSICAO-CURSOR = 2796; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
