@@ -139,8 +139,17 @@ programa
 		//EXERCÍCIO 4
 		/*Faça um programa que calcula e escreve a 
 		 * seguinte soma: soma = 1/1 + 3/2 + 5/3 + 7/4 + ... + 99/50*/
-
+		
 		escreva("\n\nEXERCÍCIO 4\n\n")
+		inteiro num1=-1, res=0
+		
+		para(inteiro i=1 ; i<=50 ; i++){
+			num1 = num1 + 2
+			escreva(num1, "/",i," + ")
+			res = res + (num1/i)
+			
+		}
+		escreva("\n\nRESULTADO: ", res)
 
 		//EXERCÍCIO 5
 		/*Faça um programa que leia um vetor de 5 posições para números reais e, 
@@ -149,15 +158,63 @@ programa
 		 * Caso, o código for diferente de 1 e 2, escreva uma mensagem informando que o código inválido.*/
 
 		escreva("\n\nEXERCÍCIO 5\n\n")
+		real vetor[5], entrada
+		caracter opcao = ' '
+
+		para(inteiro i=0 ; i<5 ; i++){
+			escreva("\nEntre com o valor da posição ",i+1,": ")
+			leia(entrada)
+			vetor[i] = entrada
+		}
+		escreva("\nDigite o modo de exibição:\n[1]Ordem direta\n[2]Ordem inversa\n[0]Finalizar programa ")
+		leia(opcao)
+		se(opcao == '0') {
+			
+		}
+		senao se(opcao == '1') {
+			escreva(vetor[0]," - ",vetor[1]," - ",vetor[2]," - ",vetor[3]," - ",vetor[4])
+		}
+		senao se(opcao == '2') {
+			escreva(vetor[4]," - ",vetor[3]," - ",vetor[2]," - ",vetor[1]," - ",vetor[0])
+		}
+		senao {
+			escreva("\nDigite um comando válido!!")
+		}
+
 
 		//EXERCÍCIO 6
 		/*Faça um programa que lê um vetor de 3 elementos e uma matriz de 3 x 3 elementos. 
 		 * Em seguida o programa deve fazer a multiplicação do vetor pelas colunas da matriz.*/
 
 		escreva("\n\nEXERCÍCIO 6\n\n")
+		inteiro vet[3], entrada2=0, multiplicacao=0
+		inteiro matriz[3][3]
 
-		
-		
+		para(inteiro i=0 ; i<3 ; i++){
+			escreva("\nEntre com o valor da posição ",i+1,": ")
+			leia(entrada2)
+			vet[i] = entrada2
+		}
+
+		escreva("\nVALORES MATRIZ\n")
+		para(inteiro linha=0 ; linha<3 ; linha++){
+			para(inteiro coluna=0 ; coluna<3 ; coluna++) {
+				escreva("entre com o valor linha/coluna ",linha,"/",coluna,": ")
+				leia(matriz[linha][coluna])
+				
+			} 
+			escreva("\n")
+			
+		}
+		escreva("\n-----CÁLCULO------\n")
+		para(inteiro linha=0 ; linha<3 ; linha++){
+			para(inteiro coluna=0 ; coluna<3 ; coluna++) {
+				matriz[linha][coluna] = vet[coluna]*matriz[linha][coluna]
+				escreva(matriz[linha][coluna],"\t")
+			}
+			escreva("\n")
+				
+		}
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -165,9 +222,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5309; 
+ * @POSICAO-CURSOR = 6816; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {vetor, 161, 7, 5};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

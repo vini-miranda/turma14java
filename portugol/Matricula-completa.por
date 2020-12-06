@@ -96,7 +96,7 @@ programa
 			
 			se(notaAluno == 1){
 				para(inteiro i=0; i<39; i++){
-					se(notas[i] > notaBase e sexos[i]=='M'){
+					se(notas[i] >= notaBase e sexos[i]=='M'){
 						escreva("\nNome Aluno: ", alunos[i], "/ sexo - ", sexos[i], " , Nota: ", notas[i])
 					}
 					se(notas[i] > notaBase e sexos[i]=='F'){
@@ -107,7 +107,7 @@ programa
 			
 			}senao se(notaAluno == 2){
 				para(inteiro i=0; i<39; i++){
-					se(notas[i] < notaBase e sexos[i]=='M'){
+					se(notas[i] <= notaBase e sexos[i]=='M'){
 						escreva("\nNome Aluno: ", alunos[i], "/ sexo - ", sexos[i], " , Nota: ", notas[i])
 					}
 					senao se(notas[i] < notaBase e sexos[i]=='F'){
@@ -134,7 +134,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1896; 
+ * @POSICAO-CURSOR = 4395; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
