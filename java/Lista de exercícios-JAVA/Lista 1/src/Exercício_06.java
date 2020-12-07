@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Exercício_06 {
@@ -23,7 +24,8 @@ public class Exercício_06 {
 				p2 = Math.pow((y2-y1),2);
 				dist = Math.sqrt((p1 + p2));
 				
-				System.out.println("Valor de distância é: " + dist);
+				DecimalFormat f = new DecimalFormat("##.00");
+				System.out.println("Valor de distância é: " + f.format(dist));
 	}
 
 }
