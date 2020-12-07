@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Exercício_07 {
+	/*Um sistema de equações lineares do tipo: 
+	, pode ser resolvido segundo mostrado abaixo : 
+	 
+	Escreva um sistema que lê os coeficientes a,b,c,d,e e f e calcula e 
+	mostra os valores de x e y. */
+
 	static Scanner leia = new Scanner(System.in);
 	public static void main(String[] args) {
 		double A,B,C,D,E,F,X,Y;

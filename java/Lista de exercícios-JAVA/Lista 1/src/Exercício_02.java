@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class Exercício_02 {
+	/*Faça um sistema que leia a idade de uma pessoa expressa em dias 
+	 * e mostre-a expressa em anos, meses e dias. 
+	 */
 	static Scanner leia = new Scanner(System.in);
 	public static void main(String[] args) {
 		int dias;
