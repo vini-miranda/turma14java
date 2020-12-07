@@ -141,8 +141,8 @@ programa
 		 * seguinte soma: soma = 1/1 + 3/2 + 5/3 + 7/4 + ... + 99/50*/
 		
 		escreva("\n\nEXERCÍCIO 4\n\n")
-		inteiro num1=-1, res=0
-		
+		inteiro num1=-1
+		real res=0.0
 		para(inteiro i=1 ; i<=50 ; i++){
 			num1 = num1 + 2
 			escreva(num1, "/",i," + ")
@@ -222,7 +222,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6816; 
+ * @POSICAO-CURSOR = 4820; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {vetor, 161, 7, 5};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
