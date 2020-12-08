@@ -12,7 +12,8 @@ public class Conversao_celsius_fah {
 
 		double resultado = (tempFahrenheit - 32) * 5/9;
 		System.out.println("sua temperatura em Celsius(C) é " + f.format(resultado) + " ºC");
-
+		
+		leia.close();
 	}
 
 }
