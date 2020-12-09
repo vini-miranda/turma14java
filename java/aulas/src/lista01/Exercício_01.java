@@ -23,5 +23,7 @@ public class Exercício_01 {
 		
 		System.out.println("Você tem " + idadeAnos + " anos e já viveu " + diasVividos + " dias.\n\n");
 	}
+	
+	
 
 }
