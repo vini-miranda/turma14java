@@ -7,45 +7,67 @@ public class CadLoja {
 	public static void main(String[] args) {
 	
 	Scanner leia = new Scanner(System.in);
-	char opcao, genero;
+	char opcao, genero, continuar='S';
 	String nome;
 	
-	
-	linha(40);
-	System.out.println("\n\n---------------PET CARE-----------------");
-	System.out.println("O lugar ideal para os pais de pet:)");
-	linha(40);
-	System.out.println("\n[1] - COMPRAR PRODUTOS\n[2] - GERENCIAR ESTOQUE\n[3] - SAIR");
-	System.out.print("\nENTRE COM O COMANDO: ");
-	opcao = leia.next().toUpperCase().charAt(0);
-	linha(40);
-	
-	if(opcao == '1') {
-		System.out.print("\nEntre com seu nome: ");
-		nome = leia.next();
-		System.out.println("\nVocê se considera:\n[M] - Masculino\n[F] - Feminino\n[O] - Outro");
-		System.out.print("\nENTRE COM O COMANDO: ");
-		genero = leia.next().toUpperCase().charAt(0);
-		if(retornaGenero(genero) == "MASCULINO") {
-			System.out.println("\nSeja bem vindo Sr. " + nome + "! :)");
-		}
-		else if(retornaGenero(genero) == "FEMININO") {
-			System.out.println("\nSeja bem vinda Sra. " + nome + "! :)");
-		}
-		else if(retornaGenero(genero) == "OUTRO") {
-			System.out.println("\nSeja bem vindx Srx. " + nome + "! :)");
-		}
-		else {
-			System.out.println("\nVocê digitou um comando inválido :( mas podemos prosseguir..");
-		}
-	}
-	else if(opcao == '2') {
-		System.out.println("\nWIP");
-	}
-	else if(opcao == '3') {
-		System.out.println("\nAgradecemos sua visita!! Volte Sempre!! :)");
-	}
-	
+	do 
+	{
+			linha(80);
+			System.out.println("\n\n-----------------------------------PET CARE------------------------------------");
+			System.out.println("O lugar ideal para os pais de pet:)");
+			linha(80);
+			System.out.println("\n[1] - COMPRAR PRODUTOS\n[2] - GERENCIAR ESTOQUE\n[3] - SAIR");
+			System.out.print("\nENTRE COM O COMANDO: ");
+			opcao = leia.next().toUpperCase().charAt(0);
+			linha(80);
+			
+			if(opcao == '1')
+			{
+				System.out.print("\nEntre com seu nome: ");
+				leia.nextLine();
+				nome = leia.nextLine();
+				System.out.print("\nVocê se considera:\n[M] - Masculino\n[F] - Feminino\n[O] - Outro");
+				System.out.print("\nENTRE COM O COMANDO: ");
+				genero = leia.next().toUpperCase().charAt(0);
+				if(retornaGenero(genero) == "MASCULINO") 
+				{
+					System.out.println("\nSeja bem vindo Sr. " + nome + "! :)");
+				}
+				else if(retornaGenero(genero) == "FEMININO") 
+				{
+					System.out.println("\nSeja bem vinda Sra. " + nome + "! :)");
+				}
+				else if(retornaGenero(genero) == "OUTRO") 
+				{
+					System.out.println("\nSeja bem vindx Srx. " + nome + "! :)");
+				}
+				else 
+				{
+					System.out.println("\nVocê digitou um comando inválido :( mas podemos prosseguir..");
+				}
+				System.out.println("\nDeseja continuar? Digite S/N: ");
+				continuar = leia.next().toUpperCase().charAt(0);
+				
+			}
+			else if(opcao == '2') 
+			{
+				System.out.println("\nWIP");
+				System.out.println("\nDeseja continuar? Digite S/N: ");
+				continuar = leia.next().toUpperCase().charAt(0);
+				
+			}
+			else if(opcao == '3') 
+			{
+				continuar = 'N';
+				break;
+			}
+			
+			
+	} while(continuar == 'S'); 
+	System.out.println("\nAgradecemos sua visita!! Volte Sempre!! :)");
+			
+			
+			
 }	
 	
 
@@ -69,7 +91,7 @@ public class CadLoja {
 		else if(genero == 'F') {
 			volta = "FEMININO";
 		}
-		else if(genero == 'F') {
+		else if(genero == 'O') {
 			volta = "OUTRO";
 		}
 		else {
