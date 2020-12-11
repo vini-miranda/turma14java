@@ -13,7 +13,7 @@ public class Exercício_04 {
 		for(int linha=0 ; linha<3 ; linha++) {
 			for(int coluna=0 ; coluna<3 ; coluna++) {
 				
-				System.out.println("entre com o valor linha/coluna "+(linha+1)+"/"+(coluna+1)+": ");
+				System.out.print("entre com o valor linha/coluna "+(linha+1)+"/"+(coluna+1)+": ");
 				mat[linha][coluna] = leia.nextInt();
 				if(linha == coluna) {
 					somaDiagonal = mat[linha][coluna] + somaDiagonal;
@@ -27,7 +27,7 @@ public class Exercício_04 {
 				
 				System.out.print(mat[linha][coluna]+"\t");
 				
-			} System.out.println("\n");
+			} System.out.print("\n");
 		}
 		System.out.println("\nA soma da diagonal principal é "+somaDiagonal);
 		System.out.println("\nA soma total dos valores é "+somaTotal);

@@ -1,13 +1,8 @@
-package banco;
-
-import java.util.Random;
 import java.util.Scanner;
 
+public class Banco_novo {
 
-public class Banco_completo {
 	static Scanner t = new Scanner(System.in);
-	static Random randomico = new Random();
-	
 	public static void main(String[] args) {
 		
 		//vetores
@@ -17,7 +12,7 @@ public class Banco_completo {
 		char sexo[] = new char[] {'M','M','F','F','M','M','M','M','M','M','M','M','M','F','F','M','M','M','M','M','M','M','F','M','F','F','M','F','M','F','M','M','M','M','M','F','F','M','F','M'};
 		double movimento[] = new double[10];
 		char tipoMovimento[] = new char[10];
-		double saldos[] = new double[40];
+		double salto[] = new double[40];
 		
 		//Variáveis globais
 		int conta = 0;
@@ -25,64 +20,28 @@ public class Banco_completo {
 		int saldo = 0;
 		char opcao = 'S';
 		
+		Scanner t = new Scanner(System.in);
 		
-		
-		for(int i=0; i<40; i++) {
-			numConta[i] = (i+1);
-		}
 		
 		
 		linha(80);
 		System.out.println("\nBanco Grupo 3");
 		linha(80);
-		System.out.print("\nDIGITE O NÚMERO DA CONTA: ");
+		System.out.println("\nDIGITE O NÚMERO DA CONTA");
 		conta = t.nextInt();
 		
 		//-- BEM VINDO / BEM VINDA
 		for(int i=0;i<40;i++) {
 			if(numConta[i] == conta && sexo[i] == 'M') {
 				System.out.println("SEJA BEM VINDO: " + nomeCliente[i]);
-			}else if(numConta[i] == conta && sexo[i] == 'F'){
+			}else if(numConta[i] == conta && sexo[i] == 'M'){
 				System.out.println("SEJA BEM VINDA: " + nomeCliente[i]);
-			}else if(conta>40 || conta<1){
+			}else {
 				System.out.println("VOCÊ AINDA NÃO POSSUI CONTA NESSE BANCO");
-				break;
 			}
 		}
 		
-		
-		for (int i=0; i<40; i++)
-		{
-			tipoConta[i]=1;
-					//randomico.nextInt(5)+1;
-		}
-			
-		
-		//NUMERO DA CONTA - TIPO DE CONTA
-		for(int i=0;i<40;i++) {
-			if(tipoConta[i] == 1 && numConta[i] == conta) {
-				System.out.println("\nCONTA: " + numConta[i] + " TIPO DE CONTA: CONTA POUPANÇA");
-				contaPoupanca(saldos[i]);
-				
-			}
-			else if(tipoConta[i] == 2 && numConta[i] == conta) {
-				System.out.println("CONTA: " + numConta[i] + " TIPO DE CONTA: CONTA CORRENTE");
-				
-			}
-			else if(tipoConta[i] == 3 && numConta[i] == conta) {
-				System.out.println("CONTA: " + numConta[i] + " TIPO DE CONTA: CONTA ESPECIAL");
-				
-			}
-			else if(tipoConta[i] == 4 && numConta[i] == conta) {
-				System.out.println("CONTA: " + numConta[i] + " TIPO DE CONTA: CONTA EMPRESA");
-				
-			}
-			else if(tipoConta[i] == 5 && numConta[i] == conta) {
-				System.out.println("CONTA: " + numConta[i] + " TIPO DE CONTA: CONTA UNIVERSITÁRIA");
-				
-			}
-		}
-		
+		//SALDO EM CONTA: R$XX,XX - TIPO DE CONTA
 		
 		
 		
@@ -95,8 +54,8 @@ public class Banco_completo {
 		opcao = t.next().charAt(0);
 		
 			linha(80);
-			if(opcao == '1' && conta == 1) {
-					
+			if(opcao == '1') {
+						
 			}
 			else if(opcao == '2') {
 				
@@ -115,70 +74,52 @@ public class Banco_completo {
 		}
 	}
 	
-	static void contaPoupanca (double saldo) {
+	static void contaPoupanca (int numConta, double saldo) {
 		
 		char opcao;
 		double valor;
-		int aniversario[] = new int[40];
-		int data,dataNiver=0;
 		
-		
+		System.out.println("Número de Conta: "+numConta);
 		System.out.println("Saldo: R$"+saldo);
 		
 		do {
-			for(int i=0; i<10;i++) {
-				System.out.print("\nQUAL O VALOR DO MOVIMENTO? R$");
-				valor = t.nextDouble();
-				System.out.print("[D]-DÉBITO OU [C]-CRÉDITO: ");
-				opcao = t.next().toUpperCase().charAt(0);
+			for(int i=0; i<3;i++) {
+				System.out.println("Conta "+numConta+" o que deseja fazer? \n[1]-Crédito \n[2]-Debito");
+				opcao = t.next().charAt(0);
 				
-				if(opcao=='D') {	
+				if(opcao=='1') {
+					System.out.println("Informe o valor do saque: ");
+					valor = t.nextDouble();
 					
 					if(saldo > valor) {
-						System.out.println("Debito feito com sucesso");
+						System.out.println("Saque feito com sucesso");
 						saldo -= valor;
-						System.out.println("Saldo R$: " + saldo);
+						System.out.println("Saldo: " + saldo);
 					}else {
-						System.out.println("Saldo insuficiente para saque!!");
-						System.out.println("Saldo R$: " + saldo);
+						System.out.println("Saldo insuficiente para saque");
+						System.out.println("Saldo: " + saldo);
 					}
 					
 				}
-				else if(opcao=='C') {
+				else if(opcao=='2') {
+					System.out.println("Informe o valor do deposito: ");
+					valor = t.nextDouble();
 					if(valor < 0) {
 						System.out.println("Informe um valor acima de 0");
-						System.out.println("Saldo R$: " + saldo);
+						System.out.println("Saldo: " + saldo);
 					}
 					else {
 						System.out.println("Deposito feito com sucesso");
 						saldo += valor;
-						System.out.println("Saldo R$: " + saldo);
+						System.out.println("Saldo: " + saldo);
 					}
 				}
 				else {
-					System.out.println("Insira um comando válido!! [D]-DÉBITO OU [C]-CRÉDITO");
-					System.out.println("Saldo R$: " + saldo);
+					System.out.println("Insira um comando válido!!");
+					System.out.println("Saldo: " + saldo);
 				}
 			}
-			
-			for(int i=0;i<40;i++) {
-				aniversario[i]=randomico.nextInt(31)+1;
-				dataNiver = aniversario[i];
-			}
-			
-			System.out.println(dataNiver);
-			System.out.print("\nEntre com a data de hoje em formato dd: ");
-	    	data = t.nextInt();
-	    	
-	    		if(dataNiver == data) {
-	    	  	System.out.println("\nHoje é seu aniversário de conta e seu saldo recebeu um acrescimo!");
-	    	  	saldo = saldo*1.005;
-	    	  	System.out.printf("\nSALDO ATUAL R$%.2f",saldo);
-	    	  }
-	    		else {
-	    			System.out.println("Que pena! hoje não é sua data aniversário...");
-	    		}
-			System.out.println("\nDeseja continuar? \n[S]-Sim \n[N]-Não");
+			System.out.println("Deseja continuar? \n[S]-Sim \n[N]-Não");
 			opcao = t.next().toUpperCase().charAt(0);
 			
 		}while(opcao=='S');
@@ -234,6 +175,5 @@ public class Banco_completo {
 			
 		}while(opcao=='S');
 
-	}
-
+}
 }

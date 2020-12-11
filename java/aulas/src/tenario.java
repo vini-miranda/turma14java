@@ -5,7 +5,7 @@ public class tenario {
 	public static void main(String[] args) {
 		
 		Scanner leia = new Scanner(System.in);
-		
+		leia.close();
 		System.out.println("Digite um valor positivo inteiro acima de 0");
 		int valor = leia.nextInt();
 		System.out.println(((valor % 2)==0)?"Valor é par!!!":"Valor é impar!!!");
