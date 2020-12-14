@@ -84,10 +84,8 @@ public class CadLoja {
 					qtd = leia.nextInt();
 					
 					for(int i=0;i<10;i++) {
-						estoque[i] = 10;
-						sobra[escolhido] = (estoque[escolhido]-qtd);
-						codigo[i]=(i<9)?"PET-00"+(i+1):"PET-0"+(i+1);
-						System.out.printf("\n%s\t\t%.2f\t\t%d\t%s\n",codigo[i],preco[i],sobra[escolhido],produto[i]);
+						estoque[escolhido] = ((estoque[escolhido]) - (qtd));
+						System.out.println(estoque[i]);
 					}
 					
 					System.out.print("\n\n DESEJA CONTINUAR COMPRANDO? S/N: ");
