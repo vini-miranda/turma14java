@@ -19,6 +19,8 @@ public class CadLoja {
 	String nome;
 	String escolha;
 	int escolhido=0;
+	int qtd, sobras=0;
+	int sobra[] = new int[10];
 	
 	do 
 	{
@@ -55,29 +57,51 @@ public class CadLoja {
 				{
 					System.out.println("\nVocê digitou um comando inválido :( mas podemos prosseguir..\n");
 				}
-				
-				linha(80);
-				System.out.println("\nCODIGO\t\tR$(UN)\t\tESTOQUE\tPRODUTO");
-				linha(80);
-				for (int x=0; x<10; x++)
+				do 
 				{
-					estoque[x]=10;
-					codigo[x]=(x<9)?"PET-00"+(x+1):"PET-0"+(x+1);
-					System.out.printf("\n%s\t\t%.2f\t\t%d\t%s\n",codigo[x],preco[x],estoque[x],produto[x]);
-					
-				}
-				System.out.print("\nDigite o código do produto para adiciona-lo no carrinho: ");
-				escolha = leia.next().toUpperCase();
-				
-				for(int i=0;i<10;i++) {
-					if(codigo[i].equals(escolha)) {
-						escolhido = i;
+					linha(80);
+					System.out.println("\nCODIGO\t\tR$(UN)\t\tESTOQUE\tPRODUTO");
+					linha(80);
+					for (int x=0; x<10; x++)
+					{
+						estoque[x]=10;
+						codigo[x]=(x<9)?"PET-00"+(x+1):"PET-0"+(x+1);
+						System.out.printf("\n%s\t\t%.2f\t\t%d\t%s\n",codigo[x],preco[x],estoque[x],produto[x]);
+						
 					}
-				}
-				linha(80);
-				System.out.println("\nCARRINHO DE COMPRAS");
-				linha(80);
-				System.out.println("\n" + produto[escolhido]+"\t\tR$"+ preco[escolhido]);
+					System.out.print("\nDigite o código do produto para adiciona-lo no carrinho: ");
+					escolha = leia.next().toUpperCase();
+					
+					for(int i=0;i<10;i++) {
+						if(codigo[i].equals(escolha)) {
+							escolhido = i;
+						}
+					}
+					
+					linha(80);
+					System.out.println("\nPRODUTO ESCOLHIDO: " + produto[escolhido]+ "\t R$" + preco[escolhido]);
+					System.out.print("\nDIGITE A QUANTIDADE QUE DESEJA ADICIONAR NO CARRINHO: ");
+					qtd = leia.nextInt();
+					
+					for(int i=0;i<10;i++) {
+						estoque[i] = 10;
+						sobra[escolhido] = (estoque[escolhido]-qtd);
+						codigo[i]=(i<9)?"PET-00"+(i+1):"PET-0"+(i+1);
+						System.out.printf("\n%s\t\t%.2f\t\t%d\t%s\n",codigo[i],preco[i],sobra[escolhido],produto[i]);
+					}
+					
+					System.out.print("\n\n DESEJA CONTINUAR COMPRANDO? S/N: ");
+					opcao = leia.next().toUpperCase().charAt(0);
+					
+				}while(opcao == 'S');
+				
+					
+					
+					linha(80);
+					System.out.println("\nCARRINHO DE COMPRAS");
+					linha(80);
+					System.out.println("\n" + produto[escolhido]+"\t\tR$"+ (preco[escolhido]*qtd));
+					
 				
 				
 				
