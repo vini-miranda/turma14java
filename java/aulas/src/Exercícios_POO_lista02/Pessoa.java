@@ -43,6 +43,11 @@ public abstract class Pessoa {
 		this.nome = nome;
 		this.endereco = endereco;
 	}
+	
+	public String getInfo() {
+		String info = "NOME: " + this.nome + "\tENDEREÇO: " + this.endereco + "\tTELEFONE: " + this.telefone;
+		return info;
+	}
 
 }
  
