@@ -13,10 +13,10 @@ public class testeAnimais {
 		anm[1] = horse;
 		anm[2] = sloth;
 		
-		System.out.println("NOME \tIDADE \tSOM EMITIDO");
+		System.out.println("NOME \tIDADE \tSOM EMITIDO \tSE LOCOMOVE");
 		for(Animal listaAnimais: anm) 
 		{
-			System.out.println(listaAnimais.getNome()+"\t"+listaAnimais.getIdade()+"\t" + listaAnimais.getSom());
+			System.out.println(listaAnimais.getNome()+"\t"+listaAnimais.getIdade()+"\t" + listaAnimais.getSom() +"\t"+ listaAnimais.getCorre());
 		}
 
 	}

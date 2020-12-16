@@ -14,4 +14,15 @@ public class Cachorro extends Animal{
 		return somEmitido;
 	}
 	
+	@Override
+	public String getCorre() {
+		String msg = null;
+		this.correr = true;
+		if(this.correr == true) {
+		msg = "Correndo";
+		}
+		
+		return msg;
+	}
+	
 }

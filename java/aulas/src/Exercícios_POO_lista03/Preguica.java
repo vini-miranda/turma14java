@@ -11,5 +11,11 @@ public class Preguica extends Animal {
 		this.somEmitido = "Grunhido";
 		return somEmitido;
 	}
+	
+	@Override
+	public String getCorre() {
+		String msg = "Andando por árvores";
+		return msg;
+	}
 
 }

@@ -11,4 +11,10 @@ public class Cavalo extends Animal{
 		this.somEmitido = "Relincho";
 		return somEmitido;
 	}
+	
+	@Override
+	public String getCorre() {
+		String msg = "Correndo";
+		return msg;
+	}
 }

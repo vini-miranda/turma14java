@@ -14,10 +14,6 @@ public class ContaPoupanca extends Conta{
 		return dataAniversarioConta;
 	}
 
-	public void setDataAniversarioConta(int dataAniversarioConta) {
-		this.dataAniversarioConta = dataAniversarioConta;
-	}
-	
 	public void comparacaoData(int data) {
 		if(this.dataAniversarioConta == data) {
     	  	System.out.println("\nHoje é seu aniversário de conta e seu saldo recebeu um acrescimo!");
