@@ -1,5 +1,6 @@
 package loja;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,10 +12,11 @@ public class lojaPOO {
 	public static void main(String[] args) {
 		List<Produto> lista = new ArrayList<>();
 		Scanner leia = new Scanner(System.in);
+		DecimalFormat f = new DecimalFormat("##.00");
 		
 		char opcao, genero;
 		String nome;
-		double total = 0;
+		double total = 0, desconto=0, precoFinal=0, imposto;
 		int unidade=0;
 		String nomeprod = null;
 		lista.add(new Produto("Alimento para peixe Alcon Guppy 20gr","1",19.99,10));
@@ -102,6 +104,8 @@ public class lojaPOO {
 				for(Produto lt: lista) {
 					if(escolha.equals(lt.getCodigoProduto())) {
 						lt.tiraEstoque(unidade);
+						
+						
 					}
 				}
 				
@@ -113,20 +117,19 @@ public class lojaPOO {
 			    
 			    for(Produto lt: lista) {
 					if(lt.getEstoqueProduto()!=10) {
+						total = ((lt.getPrecoUnitario()*unidade) + total);
 						
-						total = (lt.getPrecoUnitario()*unidade);
-						nomeprod = lt.getNomeProduto();
-						System.out.println("\n"+ total + "\t\t"+ nomeprod);
+						System.out.println("\n"+ f.format((lt.getPrecoUnitario()*unidade)) + "\t\t"+ lt.getNomeProduto());
 					}
 				}
-				
+			    
 			    linha(80);
-				System.out.println("\nTOTAL A PAGAR: " + total);
+				System.out.println("\nTOTAL A PAGAR: " + f.format(total));
 				System.out.print("\nDESEJA REALIZAR NOVA COMPRA? S/N: ");
 			    opcao = leia.next().toUpperCase().charAt(0);
 					
-				}while(opcao == 'S');
-				
+			}while(opcao == 'S');
+			
 				linha(80);
 				System.out.println("\nPAGAMENTO");
 				System.out.println("\nPREÇO(R$) \tPRODUTO");
@@ -138,32 +141,92 @@ public class lojaPOO {
 						
 					}
 				}
+				
+				linha(80);
+				System.out.println("\nTOTAL A PAGAR: " + f.format(total));
+				
 				System.out.println("\nCOMO DESEJA PAGAR:\n[1]A VISTA\n[2]PARCELADO");
 				opcao = leia.next().charAt(0);
 				if(opcao == '1') {
 					System.out.println("SELECIONE A FORMA DE PAGAMENTO:\n[1]DINHEIRO OU CHEQUE\n[2]CARTÃO DE CRÉDITO");
 					opcao = leia.next().charAt(0);
 					if(opcao == '1') {
-						
+						desconto = (total*0.20);
+						precoFinal = (total-desconto);
+						imposto = (precoFinal*0.09);
+						linha(80);
+						System.out.println("\nRECIBO");
+						linha(80);
+							 for(Produto lt: lista) {
+									if(lt.getEstoqueProduto()!=10) {
+										
+										System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+									}
+								}
+						linha(80);
+						System.out.println("\nVALOR FINAL A SER PAGO: R$" + f.format(precoFinal));
+						System.out.println("IMPOSTO: R$" + f.format(imposto));
 					}
 					else if(opcao == '2') {
-						
+						imposto = (total*0.09);
+						linha(80);
+						System.out.println("\nRECIBO");
+						linha(80);
+							 for(Produto lt: lista) {
+									if(lt.getEstoqueProduto()!=10) {
+										
+										System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+									}
+								}
+						linha(80);
+						System.out.println("\nVALOR FINAL A SER PAGO: R$" + f.format(total));
+						System.out.println("IMPOSTO: R$" + f.format(imposto));
 					}
 				}
 				else if(opcao == '2') {
 					System.out.println("\nESCOLHA A FORMA DE PAGAMENTO: \n[1]PARCELAR EM 2x\n[2]PARCELAR EM 3x ");
 					opcao= leia.next().charAt(0);
 						if(opcao == '1') {
-							
+							total = ((total*0.05) + total);
+							precoFinal = total/2;
+							imposto = (total*0.09);
+							linha(80);
+							System.out.println("\nRECIBO");
+							linha(80);
+								 for(Produto lt: lista) {
+										if(lt.getEstoqueProduto()!=10) {
+											
+											System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+										}
+									}
+							linha(80);
+							System.out.println("\nPREÇO TOTAL A SER PAGO: R$"+ f.format(total) +" EM 2 PARCELAS DE R$"+f.format(precoFinal));
+							System.out.println("IMPOSTO: R$" + f.format(imposto));
+			
 						}
 						else if(opcao == '2') {
-							
+							total = ((total*0.10) + total);
+							precoFinal = total/3;
+							imposto = (total*0.09);
+							linha(80);
+							System.out.println("\nRECIBO");
+							linha(80);
+								 for(Produto lt: lista) {
+										if(lt.getEstoqueProduto()!=10) {
+											
+											System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+										}
+									}
+							linha(80);
+							System.out.println("\nPREÇO TOTAL A SER PAGO: R$"+ f.format(total) +" EM 3 PARCELAS DE R$"+f.format(precoFinal));
+							System.out.println("IMPOSTO: R$" + f.format(imposto));
 						}
 				}
 				
-				
+				linha(80);
 				System.out.println("\nOBRIGADO PELA COMPRA!! VOLTE SEMPRE!! :)");
-				System.out.print("\nDESEJA VOLTAR AO MENU PRINCIPAL? S?N: ");
+				linha(80);
+				System.out.print("\nDESEJA VOLTAR AO MENU PRINCIPAL? S/N: ");
 				opcao = leia.next().toUpperCase().charAt(0);
 			}
 		
