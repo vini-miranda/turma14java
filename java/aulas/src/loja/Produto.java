@@ -70,7 +70,7 @@ public class Produto {
 	public double venda(int qtdeVendida) {
 
         if (testaEstoque(qtdeVendida)) {
-            tiraEstoque(qtdeVendida);
+            //tiraEstoque(qtdeVendida);
             return qtdeVendida * this.precoUnitario;
         } else {
             System.out.println("Venda não autorizada");

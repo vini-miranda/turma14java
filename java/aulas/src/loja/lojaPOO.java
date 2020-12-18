@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Exercícios_POO_lista03.ProdutosLoja;
 
 public class lojaPOO {
 
@@ -15,6 +14,9 @@ public class lojaPOO {
 		
 		char opcao, genero;
 		String nome;
+		double total = 0;
+		int unidade=0;
+		String nomeprod = null;
 		lista.add(new Produto("Alimento para peixe Alcon Guppy 20gr","1",19.99,10));
 		lista.add(new Produto("Arranhador Pawise Post Fred para Gatos","2",60.50,10));
 		lista.add(new Produto("Brinquedo Chalesco para Cães Dental Bone","3",10.99,10));
@@ -26,7 +28,8 @@ public class lojaPOO {
 		lista.add(new Produto("Ração Royal Canin Premium Cat 3kg","9",39.99,10));
 		lista.add(new Produto("Shampoo e Condicionador Pet Clean Neutro para Cães e Gatos","10",11.99,10));
 		
-		
+		do 
+		{
 		linha(80);
 		System.out.println("\n\n-----------------------------------PET CARE-------------------------------------");
 		System.out.println("O lugar ideal para os pais de pet:)");
@@ -78,13 +81,14 @@ public class lojaPOO {
 				System.out.println("\nVocê digitou um comando inválido :( mas podemos prosseguir..\n");
 			}
 			
-			linha(80);
-			System.out.println("\nCODIGO\t\tR$(UN)\t\tESTOQUE\tPRODUTO");
-			linha(80);
-			
-			
 			do
 			{
+				linha(80);
+				System.out.println("\nCODIGO\t\tR$(UN)\t\tESTOQUE\tPRODUTO");
+				linha(80);
+			
+			
+			
 				for(Produto prod: lista) {
 					
 					System.out.println("\n"+prod.getCodigoProduto() + "\t\t" + prod.getPrecoUnitario() + "\t\t"+ prod.getEstoqueProduto() + "\t"+ prod.getNomeProduto());
@@ -93,11 +97,11 @@ public class lojaPOO {
 				System.out.print("\nDigite o código do produto que deseja comprar para adiciona-lo no carrinho: ");
 				String escolha = leia.next();
 				System.out.print("Quantas unidades deseja: ");
-				int unidade = leia.nextInt();
+				unidade = leia.nextInt();
 				
 				for(Produto lt: lista) {
 					if(escolha.equals(lt.getCodigoProduto())) {
-						lt.venda(unidade);
+						lt.tiraEstoque(unidade);
 					}
 				}
 				
@@ -105,21 +109,85 @@ public class lojaPOO {
 			    System.out.println("\nCARRINHO");
 			    System.out.println("\nPREÇO(R$) \tPRODUTO");
 			    linha(80);
+				
+			    
+			    for(Produto lt: lista) {
+					if(lt.getEstoqueProduto()!=10) {
+						
+						total = (lt.getPrecoUnitario()*unidade);
+						nomeprod = lt.getNomeProduto();
+						System.out.println("\n"+ total + "\t\t"+ nomeprod);
+					}
+				}
+				
+			    linha(80);
+				System.out.println("\nTOTAL A PAGAR: " + total);
+				System.out.print("\nDESEJA REALIZAR NOVA COMPRA? S/N: ");
+			    opcao = leia.next().toUpperCase().charAt(0);
+					
+				}while(opcao == 'S');
+				
+				linha(80);
+				System.out.println("\nPAGAMENTO");
+				System.out.println("\nPREÇO(R$) \tPRODUTO");
+				linha(80);
 				for(Produto lt: lista) {
 					if(lt.getEstoqueProduto()!=10) {
 						
 						System.out.println("\n"+ (lt.getPrecoUnitario()*unidade) + "\t\t"+ lt.getNomeProduto());
+						
 					}
+				}
+				System.out.println("\nCOMO DESEJA PAGAR:\n[1]A VISTA\n[2]PARCELADO");
+				opcao = leia.next().charAt(0);
+				if(opcao == '1') {
+					System.out.println("SELECIONE A FORMA DE PAGAMENTO:\n[1]DINHEIRO OU CHEQUE\n[2]CARTÃO DE CRÉDITO");
+					opcao = leia.next().charAt(0);
+					if(opcao == '1') {
+						
+					}
+					else if(opcao == '2') {
+						
+					}
+				}
+				else if(opcao == '2') {
+					System.out.println("\nESCOLHA A FORMA DE PAGAMENTO: \n[1]PARCELAR EM 2x\n[2]PARCELAR EM 3x ");
+					opcao= leia.next().charAt(0);
+						if(opcao == '1') {
+							
+						}
+						else if(opcao == '2') {
+							
+						}
 				}
 				
 				
-			System.out.print("\nDESEJA REALIZAR NOVA COMPRA? S/N: ");
-		    opcao = leia.next().toUpperCase().charAt(0);
-				
-			}while(opcao == 'S');
+				System.out.println("\nOBRIGADO PELA COMPRA!! VOLTE SEMPRE!! :)");
+				System.out.print("\nDESEJA VOLTAR AO MENU PRINCIPAL? S?N: ");
+				opcao = leia.next().toUpperCase().charAt(0);
+			}
+		
+			if(opcao == '2') {
+				linha(80);
+				System.out.println("\nCODIGO\t\tR$(UN)\t\tESTOQUE\tPRODUTO");
+				linha(80);
 			
 			
-		}
+			
+				for(Produto prod: lista) {
+					
+					System.out.println("\n"+prod.getCodigoProduto() + "\t\t" + prod.getPrecoUnitario() + "\t\t"+ prod.getEstoqueProduto() + "\t"+ prod.getNomeProduto());
+				}
+				System.out.print("\nDESEJA VOLTAR AO MENU PRINCIPAL? S/N: ");
+				opcao = leia.next().toUpperCase().charAt(0);
+			}
+			
+			if(opcao == '3') {
+				System.out.println("\nOBRIGADO PELA VISITA, ESTAMOS SEMPRE A SUA ESPERA! :)");
+				linha(80);
+			}
+		
+		}while(opcao == 'S');
 		
 		
 	}
