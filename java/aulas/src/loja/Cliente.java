@@ -11,8 +11,15 @@ public class Cliente extends Pessoa{
 		this.cpf = cpf;
 	}
 	
+	//encapsulamento
+	public String getCpf() {
+		return cpf;
+	}
+
+
 	//metodos
-	public void corrigeCpf() {
+	public void corrigeCpf(String novaInfo) {
+		this.cpf = novaInfo;
 		
 	}
 }
