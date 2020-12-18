@@ -10,7 +10,7 @@ public class Exercicio03_loja {
 		Scanner t = new Scanner(System.in);
 		List<ProdutosLoja> lista = new ArrayList<>();
 		
-		lista.add(new ProdutosLoja("CAMISETA BRANCA",10));
+		lista.add(new ProdutosLoja("CAMISETA",10));
 		lista.add(new ProdutosLoja("CALÇA BEGE",4));
 		lista.add(new ProdutosLoja("TENIS ST PRETO",3));
 		

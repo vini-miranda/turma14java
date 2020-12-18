@@ -7,13 +7,24 @@ import java.util.Scanner;
 import Exercícios_POO_lista03.ProdutosLoja;
 
 public class lojaPOO {
-static List<Produto> lista = new ArrayList<>();
+
 
 	public static void main(String[] args) {
+		List<Produto> lista = new ArrayList<>();
 		Scanner leia = new Scanner(System.in);
 		
 		char opcao, genero;
 		String nome;
+		lista.add(new Produto("Alimento para peixe Alcon Guppy 20gr","1",19.99,10));
+		lista.add(new Produto("Arranhador Pawise Post Fred para Gatos","2",60.50,10));
+		lista.add(new Produto("Brinquedo Chalesco para Cães Dental Bone","3",10.99,10));
+		lista.add(new Produto("Casa Iglu Furacão Pet Verde para Cães Média","4",169.99,10));
+		lista.add(new Produto("Coleira Ferplast Ergocomfort Linear para Cães","5",89.99,10));
+		lista.add(new Produto("Fonte Bebedouro Furacão Pet","6",139.99,10));
+		lista.add(new Produto("Gaiola Ferplast Criceti 9 Pirata para Roedores","7",249.99,10));
+		lista.add(new Produto("Ração Golden Fórmula Light para Cães Adultos - 15kg","8",129.99,10));
+		lista.add(new Produto("Ração Royal Canin Premium Cat 3kg","9",39.99,10));
+		lista.add(new Produto("Shampoo e Condicionador Pet Clean Neutro para Cães e Gatos","10",11.99,10));
 		
 		
 		linha(80);
@@ -71,16 +82,7 @@ static List<Produto> lista = new ArrayList<>();
 			System.out.println("\nCODIGO\t\tR$(UN)\t\tESTOQUE\tPRODUTO");
 			linha(80);
 			
-			lista.add(new Produto("Alimento para peixe Alcon Guppy 20gr",1,19.99,10));
-			lista.add(new Produto("Arranhador Pawise Post Fred para Gatos",2,60.50,10));
-			lista.add(new Produto("Brinquedo Chalesco para Cães Dental Bone",3,10.99,10));
-			lista.add(new Produto("Casa Iglu Furacão Pet Verde para Cães Média",4,169.99,10));
-			lista.add(new Produto("Coleira Ferplast Ergocomfort Linear para Cães",5,89.99,10));
-			lista.add(new Produto("Fonte Bebedouro Furacão Pet",6,139.99,10));
-			lista.add(new Produto("Gaiola Ferplast Criceti 9 Pirata para Roedores",7,249.99,10));
-			lista.add(new Produto("Ração Golden Fórmula Light para Cães Adultos - 15kg",8,129.99,10));
-			lista.add(new Produto("Ração Royal Canin Premium Cat 3kg",9,39.99,10));
-			lista.add(new Produto("Shampoo e Condicionador Pet Clean Neutro para Cães e Gatos",10,11.99,10));
+			
 			do
 			{
 				for(Produto prod: lista) {
@@ -89,38 +91,30 @@ static List<Produto> lista = new ArrayList<>();
 				}
 				
 				System.out.print("\nDigite o código do produto que deseja comprar para adiciona-lo no carrinho: ");
-				int escolha = leia.nextInt();
+				String escolha = leia.next();
 				System.out.print("Quantas unidades deseja: ");
 				int unidade = leia.nextInt();
 				
 				for(Produto lt: lista) {
-					if(lt.getCodigoProduto() == escolha) {
-						lista.remove(lt);
-						linha(80);
-						lt.tiraEstoque(unidade);
-					    System.out.println("\nCARRINHO");
-					    System.out.println("\nPREÇO(R$) \tPRODUTO");
-					    linha(80);
-						System.out.println("\n"+ lt.venda(unidade) + "\t\t"+ lt.getNomeProduto());
+					if(escolha.equals(lt.getCodigoProduto())) {
+						lt.venda(unidade);
 					}
-						
 				}
-				/*for (int i = 0; i < lista.size(); i++) {
-					if (lista.get(i).getCodigoProduto() == escolha) {
-					      lista.get(i);
-					      
-					      linha(80);
-					      lista.get(i).tiraEstoque(unidade);
-					      System.out.println("\nCARRINHO");
-					      System.out.println("\nPREÇO(R$) \tPRODUTO");
-					      linha(80);
-					      System.out.println("\n" + lista.get(i).venda(unidade) + "\t\t" + lista.get(i).getNomeProduto());
-					      System.out.print("\nDESEJA REALIZAR NOVA COMPRA? S/N: ");
-					      opcao = leia.next().toUpperCase().charAt(0);
-					      
-				    }
-					
-				}*/
+				
+				linha(80);
+			    System.out.println("\nCARRINHO");
+			    System.out.println("\nPREÇO(R$) \tPRODUTO");
+			    linha(80);
+				for(Produto lt: lista) {
+					if(lt.getEstoqueProduto()!=10) {
+						
+						System.out.println("\n"+ (lt.getPrecoUnitario()*unidade) + "\t\t"+ lt.getNomeProduto());
+					}
+				}
+				
+				
+			System.out.print("\nDESEJA REALIZAR NOVA COMPRA? S/N: ");
+		    opcao = leia.next().toUpperCase().charAt(0);
 				
 			}while(opcao == 'S');
 			

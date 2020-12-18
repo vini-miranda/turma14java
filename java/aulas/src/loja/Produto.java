@@ -4,7 +4,7 @@ public class Produto {
 	
 	//atributos
 	private String nomeProduto;
-	private int codigoProduto;
+	private String codigoProduto;
 	private double precoUnitario;
 	private int estoqueProduto;
 	
@@ -16,7 +16,7 @@ public class Produto {
 	}
 	
 	
-	public Produto(String nomeProduto, int codigoProduto, double precoUnitario, int estoqueProduto) {
+	public Produto(String nomeProduto, String codigoProduto, double precoUnitario, int estoqueProduto) {
 		super();
 		this.nomeProduto = nomeProduto;
 		this.codigoProduto = codigoProduto;
@@ -34,11 +34,11 @@ public class Produto {
 		this.nomeProduto = nomeProduto;
 	}
 
-	public int getCodigoProduto() {
+	public String getCodigoProduto() {
 		return codigoProduto;
 	}
 
-	public void setCodigoProduto(int codigoProduto) {
+	public void setCodigoProduto(String codigoProduto) {
 		this.codigoProduto = codigoProduto;
 	}
 
@@ -66,27 +66,32 @@ public class Produto {
 		this.estoqueProduto = (this.estoqueProduto+unidades);
 	}
 	
-	public boolean testaEstoque(int unid) 
-	{
-		if(unid <= this.estoqueProduto) {
-			return true;
-		}
-		else {
-			System.out.println("QUANTIDADE A SER REMOVIDA MAIOR QUE O LIMITE DE ESTOQUE!");
-			return false;
-		}
-	}
 	
-	public double venda(int qtdVendida) {
-		double valorFinal=0;
-		if(qtdVendida>this.estoqueProduto) {
-			System.out.println("ESTOQUE INSUFICIENTE PARA COMPRA!");
-		}
-		else {
-			valorFinal = (this.precoUnitario*qtdVendida);
-		}
-		return valorFinal;
-	}
+	public double venda(int qtdeVendida) {
+
+        if (testaEstoque(qtdeVendida)) {
+            tiraEstoque(qtdeVendida);
+            return qtdeVendida * this.precoUnitario;
+        } else {
+            System.out.println("Venda não autorizada");
+            return 0;
+            }
+        }
+        
+    public boolean testaEstoque(int valor) {
+
+        if (this.estoqueProduto >= valor) {
+            return true;
+        } else if (valor == 0) {
+            return false;
+        } else if (this.estoqueProduto <= 0) {
+            return false;
+        } else {
+            return false;
+        }
+
+ }
+		
 	
 	
 	
