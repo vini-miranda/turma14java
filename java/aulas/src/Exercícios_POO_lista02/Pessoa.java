@@ -1,6 +1,6 @@
 package Exercícios_POO_lista02;
 
-public abstract class Pessoa {
+public class Pessoa {
 	
 	protected String nome;
 	protected String endereco;

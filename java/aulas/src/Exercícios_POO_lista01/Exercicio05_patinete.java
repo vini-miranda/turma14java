@@ -12,7 +12,7 @@ public class Exercicio05_patinete {
 		linha(60);
 		System.out.println(pat1.info());
 		
-		pat1.acelerar(25);
+		pat1.acelerar(15);
 		
 		System.out.printf("\n\nA velocidade atual do patinete é %.0f km/h e sua velocidade máxima é %.0f km/h. ",pat1.velocidadeAtual,pat1.velocidadeMaxima);
 		
