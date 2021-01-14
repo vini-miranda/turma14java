@@ -104,11 +104,10 @@ public class lojaPOO {
 				for(Produto lt: lista) {
 					if(escolha.equals(lt.getCodigoProduto())) {
 						lt.tiraEstoque(unidade);
-						
-						
+						total = ((lt.getPrecoUnitario()*unidade) + total);
 					}
 				}
-				
+
 				linha(80);
 			    System.out.println("\nCARRINHO");
 			    System.out.println("\nPREÇO(R$) \tPRODUTO");
@@ -117,7 +116,6 @@ public class lojaPOO {
 			    
 			    for(Produto lt: lista) {
 					if(lt.getEstoqueProduto()!=10) {
-						total = ((lt.getPrecoUnitario()*unidade) + total);
 						
 						System.out.println("\n"+ f.format((lt.getPrecoUnitario()*unidade)) + "\t\t"+ lt.getNomeProduto());
 					}
@@ -125,7 +123,7 @@ public class lojaPOO {
 			    
 			    linha(80);
 				System.out.println("\nTOTAL A PAGAR: " + f.format(total));
-				System.out.print("\nDESEJA REALIZAR NOVA COMPRA? S/N: ");
+				System.out.print("\nDESEJA COMPRAR MAIS ITENS? S/N: ");
 			    opcao = leia.next().toUpperCase().charAt(0);
 					
 			}while(opcao == 'S');
