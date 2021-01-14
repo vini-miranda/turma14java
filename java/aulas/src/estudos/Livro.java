@@ -49,7 +49,8 @@ public class Livro implements Publicacao {
 	
 
 	public String detalhes() {
-		return "Livro: " + this.titulo + "\nAutor: " + this.autor + "\nTotal de páginas: " + this.totPags + "\nAberto: " + this.aberto + "\nLeitor: " + this.leitor.getNome();
+		return "Livro: " + this.titulo + "\nAutor: " + this.autor + "\nTotal de páginas: " + this.totPags 
+				+ "\nPágina Atual: " + this.pagAtual + "\nAberto: " + this.aberto + "\nLeitor: " + this.leitor.getNome();
 	}
 	@Override
 	public void abrir() {

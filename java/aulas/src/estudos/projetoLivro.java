@@ -12,9 +12,13 @@ public class projetoLivro {
 		l[1] = new Livro("SAUDADE SUA","RICARDINHO REBOLOS",500,p[1]);
 		l[2] = new Livro("VENTO GELADO","RUBINHO BAR RISCHELO",200,p[0]);
 		
+		l[0].abrir();
+		l[0].folhear(50);
+		
+		
+		
+		
 		System.out.println(l[0].detalhes());
-		
-		
 
 	}
 
