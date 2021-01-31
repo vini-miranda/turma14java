@@ -19,6 +19,8 @@ public class lojaPOO {
 		double total = 0, desconto=0, precoFinal=0, imposto;
 		int unidade=0;
 		String nomeprod = null;
+		int[] unidade2 = new int[10];
+		
 		lista.add(new Produto("Alimento para peixe Alcon Guppy 20gr","1",19.99,10));
 		lista.add(new Produto("Arranhador Pawise Post Fred para Gatos","2",60.50,10));
 		lista.add(new Produto("Brinquedo Chalesco para Cães Dental Bone","3",10.99,10));
@@ -101,13 +103,23 @@ public class lojaPOO {
 				System.out.print("Quantas unidades deseja: ");
 				unidade = leia.nextInt();
 				
-				for(Produto lt: lista) {
+				/*for(Produto lt: lista) {
 					if(escolha.equals(lt.getCodigoProduto())) {
 						lt.tiraEstoque(unidade);
 						total = ((lt.getPrecoUnitario()*unidade) + total);
 					}
 				}
-
+				*/
+				for(Produto prod: lista){
+					if(escolha.equals(prod.getCodigoProduto())) {	
+						if(prod.testaEstoque(unidade)) {
+							unidade2[lista.indexOf(prod)] += unidade;
+							total = ((prod.getPrecoUnitario()*unidade) + total);
+						}
+						prod.tiraEstoque(unidade);
+					}
+				}
+				
 				linha(80);
 			    System.out.println("\nCARRINHO");
 			    System.out.println("\nPREÇO(R$) \tPRODUTO");
@@ -117,7 +129,7 @@ public class lojaPOO {
 			    for(Produto lt: lista) {
 					if(lt.getEstoqueProduto()!=10) {
 						
-						System.out.println("\n"+ f.format((lt.getPrecoUnitario()*unidade)) + "\t\t"+ lt.getNomeProduto());
+						System.out.println("\n"+ f.format((lt.getPrecoUnitario()*(unidade2[lista.indexOf(lt)]))) + "\t\t"+ lt.getNomeProduto());
 					}
 				}
 			    
@@ -135,7 +147,7 @@ public class lojaPOO {
 				for(Produto lt: lista) {
 					if(lt.getEstoqueProduto()!=10) {
 						
-						System.out.println("\n"+ (lt.getPrecoUnitario()*unidade) + "\t\t"+ lt.getNomeProduto());
+						System.out.println("\n"+ (lt.getPrecoUnitario()*unidade2[lista.indexOf(lt)]) + "\t\t"+ lt.getNomeProduto());
 						
 					}
 				}
