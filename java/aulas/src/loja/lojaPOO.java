@@ -18,7 +18,6 @@ public class lojaPOO {
 		String nome;
 		double total = 0, desconto=0, precoFinal=0, imposto;
 		int unidade=0;
-		String nomeprod = null;
 		int[] unidade2 = new int[10];
 		
 		lista.add(new Produto("Alimento para peixe Alcon Guppy 20gr","1",19.99,10));
@@ -170,7 +169,7 @@ public class lojaPOO {
 							 for(Produto lt: lista) {
 									if(lt.getEstoqueProduto()!=10) {
 										
-										System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+										System.out.println("\n"+ (lt.getPrecoUnitario()*unidade2[lista.indexOf(lt)]) + "\t\t"+ lt.getNomeProduto());
 									}
 								}
 						linha(80);
@@ -185,7 +184,7 @@ public class lojaPOO {
 							 for(Produto lt: lista) {
 									if(lt.getEstoqueProduto()!=10) {
 										
-										System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+										System.out.println("\n"+ (lt.getPrecoUnitario()*unidade2[lista.indexOf(lt)]) + "\t\t"+ lt.getNomeProduto());
 									}
 								}
 						linha(80);
@@ -206,7 +205,7 @@ public class lojaPOO {
 								 for(Produto lt: lista) {
 										if(lt.getEstoqueProduto()!=10) {
 											
-											System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+											System.out.println("\n"+ (lt.getPrecoUnitario()*unidade2[lista.indexOf(lt)]) + "\t\t"+ lt.getNomeProduto());
 										}
 									}
 							linha(80);
@@ -224,7 +223,7 @@ public class lojaPOO {
 								 for(Produto lt: lista) {
 										if(lt.getEstoqueProduto()!=10) {
 											
-											System.out.println("\n"+ (lt.venda(unidade) + "\t\t"+ lt.getNomeProduto()));
+											System.out.println("\n"+ (lt.getPrecoUnitario()*unidade2[lista.indexOf(lt)]) + "\t\t"+ lt.getNomeProduto());
 										}
 									}
 							linha(80);
