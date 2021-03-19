@@ -27,8 +27,4 @@ public class ProdutosLoja {
 		this.estoque = estoque;
 	}
 	
-	
-	
-	
-	
 }

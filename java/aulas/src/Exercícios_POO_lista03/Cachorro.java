@@ -21,6 +21,9 @@ public class Cachorro extends Animal{
 		if(this.correr == true) {
 		msg = "Correndo";
 		}
+		else {
+			msg = "Não corre";
+		}
 		
 		return msg;
 	}

@@ -11,6 +11,8 @@ public class tesstando {
 		lista.add(new ProdutosLoja("hsjh",23));
 		lista.add(new ProdutosLoja("hddojs",83));
 		
+		
+		
 		for(ProdutosLoja v: lista) {
 			System.out.println(v.getProduto());
 		}
