@@ -18,7 +18,7 @@ public class Exe2 {
 	        System.out.println(readString);
 
 	        if (readString.isEmpty()) {
-	            int random = (int)(Math.random() * 21 + 1);
+	            int random = (int)(Math.random() * 10 + 1);
 	            System.out.println("Número sorteado: " + random);
 	            
 	            if(random <= 21) {
